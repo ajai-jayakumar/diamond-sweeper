@@ -117,7 +117,7 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <h1>Diamond Sweeper</h1>
+        <h1 className="game-title">Diamond Sweeper</h1>
         <section className="game-content">
           {this.state.gameOver || this.state.foundAllDiamond
             ? this._renderGameOver()

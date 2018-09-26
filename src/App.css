@@ -1,12 +1,17 @@
-.game-content {
-  display: flex;
+.game-title {
   text-align: center;
 }
 
+.game-content {
+  display: flex;
+  text-align: center;
+  flex-direction: column-reverse;
+}
+
 .game-grid {
-  flex: 0 0 60%;
+  flex: 0 0 100%;
 }
 
 .game-scoreboard {
-  flex: 0 0 40%;
+  flex: 0 0 100%;
 }
