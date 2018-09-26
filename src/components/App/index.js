@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Grid from './Grid';
-import './App.scss';
+import Grid from '../Grid';
 
 const SIZE = 8;
 

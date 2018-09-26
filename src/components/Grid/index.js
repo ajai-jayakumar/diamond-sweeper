@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { diamond, arrow, question } from './assets';
-import './Grid.scss';
+import { diamond, question } from '../../assets';
 
 export default class Grid extends Component {
   constructor() {
