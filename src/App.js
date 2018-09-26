@@ -42,15 +42,18 @@ class App extends Component {
     this.setState({
       diamondsLeft: this.diamondPositions.length,
     });
+    if (this.diamondPositions.length === 0) {
+      this.setState({ foundAllDiamond: true });
+    }
   }
 
   _decrementCounter() {
-    if (this.state.score === 0) {
-      this.setState({ gameOver: true });
-    }
     this.setState({
       score: this.state.score - 1,
     });
+    if (this.state.score === 0) {
+      this.setState({ gameOver: true });
+    }
   }
 
   _renderRowElements(row) {
@@ -81,10 +84,32 @@ class App extends Component {
 
   _renderTable() {
     return (
-      <div>
-        <table className="table-board">
-          <tbody>{this._renderRows()}</tbody>
-        </table>
+      <Fragment>
+        <div className="game-grid">
+          <div>
+            <table className="game-board">
+              <tbody>{this._renderRows()}</tbody>
+            </table>
+          </div>
+        </div>
+        <div className="game-scoreboard">
+          <div>Your Score: {this.state.score}</div>
+          <div>Diamonds Left: {this.state.diamondsLeft}</div>
+        </div>
+      </Fragment>
+    );
+  }
+
+  _renderGameOver() {
+    return (
+      <div className="game-over-content">
+        <span className="game-over-text">
+          {this.state.gameOver
+            ? `Game Over`
+            : `Congratulations! You have found all the diamonds.`}
+        </span>
+        <p className="game-score-text">Your score: {this.state.score}</p>
+        <p>Reload the page to Play again</p>
       </div>
     );
   }
@@ -94,11 +119,9 @@ class App extends Component {
       <Fragment>
         <h1>Diamond Sweeper</h1>
         <section className="game-content">
-          <div className="game-grid">{this._renderTable()}</div>
-          <div className="game-scoreboard">
-            <div>Your Score: {this.state.score}</div>
-            <div>Diamonds Left: {this.state.diamondsLeft}</div>
-          </div>
+          {this.state.gameOver || this.state.foundAllDiamond
+            ? this._renderGameOver()
+            : this._renderTable()}
         </section>
       </Fragment>
     );
