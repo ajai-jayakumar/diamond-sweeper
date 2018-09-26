@@ -1,0 +1,12 @@
+.game-content {
+  display: flex;
+  text-align: center;
+}
+
+.game-grid {
+  flex: 0 0 60%;
+}
+
+.game-scoreboard {
+  flex: 0 0 40%;
+}

@@ -1,0 +1,12 @@
+.images {
+  width: 50px;
+}
+
+.button {
+  border: 1px solid transparent;
+}
+
+.table-board td {
+  height: 60px;
+  border: 1px solid;
+}
