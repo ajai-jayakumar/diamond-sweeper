@@ -1,19 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component, Fragment } from 'react';
 import './App.css';
 
 class App extends Component {
+  _renderRowElements(row) {
+    let rowElements = [];
+    for (let i = 0; i < 8; i++) {
+      rowElements.push(<td key={i + '' + row}>yay</td>);
+    }
+    return rowElements;
+  }
+
+  _renderRows() {
+    let row = [];
+    for (let i = 0; i < 8; i++) {
+      row.push(<tr key={i}>{this._renderRowElements(i)}</tr>);
+    }
+    return row;
+  }
+
+  _renderTable() {
+    return (
+      <div>
+        <table className="table-board">
+          <tbody>{this._renderRows()}</tbody>
+        </table>
+      </div>
+    );
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Fragment>
+        <h1>Diamond Sweeper</h1>
+        <section>{this._renderTable()}</section>
+      </Fragment>
     );
   }
 }
