@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { diamond, arrow, question } from './assets';
-import './Grid.css';
+import './Grid.scss';
 
 export default class Grid extends Component {
   constructor() {
@@ -31,8 +31,8 @@ export default class Grid extends Component {
       <Fragment>
         {!pressed && (
           <button
-            className="button"
-            id={`button-${row}${col}`}
+            className="grid"
+            id={`grid-${row}${col}`}
             onClick={() => {
               this._revealAnswer();
             }}
@@ -46,9 +46,9 @@ export default class Grid extends Component {
           </button>
         )}
         {isDiamond && (
-          <div className="display-value-diamond">
+          <button className="display-value-diamond">
             <img src={diamond} className="images" alt="diamond" />
-          </div>
+          </button>
         )}
       </Fragment>
     );

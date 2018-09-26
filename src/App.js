@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Grid from './Grid';
-import './App.css';
+import './App.scss';
 
 const SIZE = 8;
 
@@ -60,15 +60,16 @@ class App extends Component {
     let rowElements = [];
     for (let i = 0; i < SIZE; i++) {
       rowElements.push(
-        <td key={i + '' + row}>
+        <div className="game-grid">
           <Grid
+            key={i + '' + row}
             row={row}
             col={i}
             diamondPositions={this.diamondPositions}
             removeDiamondFromArray={() => this._removeDiamondFromArray(row, i)}
             decrementCounter={() => this._decrementCounter(row, i)}
           />
-        </td>,
+        </div>,
       );
     }
     return rowElements;
@@ -77,7 +78,11 @@ class App extends Component {
   _renderRows() {
     let row = [];
     for (let i = 0; i < SIZE; i++) {
-      row.push(<tr key={i}>{this._renderRowElements(i)}</tr>);
+      row.push(
+        <div key={i} className="game-rows">
+          {this._renderRowElements(i)}
+        </div>,
+      );
     }
     return row;
   }
@@ -85,17 +90,11 @@ class App extends Component {
   _renderTable() {
     return (
       <Fragment>
-        <div className="game-grid">
-          <div>
-            <table className="game-board">
-              <tbody>{this._renderRows()}</tbody>
-            </table>
-          </div>
-        </div>
         <div className="game-scoreboard">
           <div>Your Score: {this.state.score}</div>
           <div>Diamonds Left: {this.state.diamondsLeft}</div>
         </div>
+        {this._renderRows()}
       </Fragment>
     );
   }

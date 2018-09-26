@@ -1,0 +1,33 @@
+.game-title {
+  font-size: 24px;
+  text-align: center;
+}
+
+.game-content {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.game-scoreboard {
+  margin-bottom: 30px;
+}
+
+.game-rows {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.game-grid {
+  border: 1px solid #000;
+  margin: 1px;
+  flex: 1;
+  @media screen and (min-width: 768px) {
+    flex: 0.05;
+  }
+}
