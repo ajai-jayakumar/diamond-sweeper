@@ -15,7 +15,7 @@ A simple game diamond finding game on ReactJS. This project is bootstraped with 
 > $ npm install
 
 **Note:**
-**Need minimum node v8 for the project to run, since node sass has been used.**
+**Need minimum node v8.x version for the project to run, since node sass has been used.**
 
 **3. How to launch**
 
